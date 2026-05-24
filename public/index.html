@@ -1,0 +1,32 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>维权打假工作台</title><link rel="stylesheet" href="styles.css"/>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@6/dist/tesseract.min.js"></script>
+</head><body>
+<div class="container">
+  <header><h1>维权打假工作台</h1><p id="welcome"></p></header>
+  <section id="auth" class="card">
+    <h2>注册 / 登录</h2>
+    <input id="username" placeholder="用户名"/><input id="password" type="password" placeholder="密码"/>
+    <div><button onclick="register()">注册</button><button onclick="login()">登录</button></div>
+  </section>
+  <section id="app" class="hidden">
+    <div class="grid">
+      <div class="card"><h3>项目总览</h3><div id="stats"></div></div>
+      <div class="card"><h3>外部链接</h3><input id="linkTitle" placeholder="网站备注名称"/><input id="linkUrl" placeholder="https://..."/><button onclick="addLink()">添加链接</button><ul id="links"></ul></div>
+    </div>
+
+    <div class="card">
+      <h3 id="formTitle">新建项目（引导卡片）</h3>
+      <div class="form-grid" id="form"></div>
+      <div><label>回复内容图片上传</label><input type="file" id="replyImage" accept="image/*"/><button onclick="uploadAndOcr('reply')">上传并OCR回复内容</button></div>
+      <div><label>订单截图上传</label><input type="file" id="orderImage" accept="image/*"/><button onclick="uploadAndOcr('order')">上传并OCR订单号/快递号</button></div>
+      <p id="ocrResult"></p>
+      <button onclick="saveProject()">保存项目</button>
+    </div>
+
+    <div class="card"><h3>项目卡片（可编辑）</h3><div id="projects"></div></div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body></html>
